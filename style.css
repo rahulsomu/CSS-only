@@ -1,0 +1,454 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 110%;
+}
+body {
+  background: #eee;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+body h1 {
+  font-family: sans-serif;
+  position: absolute;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+span::after {
+  content: 'Hover';
+  color: #3bd32e;
+}
+.main-body {
+  height: 30rem;
+  min-width: 50rem;
+  background: #eee;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 10rem;
+  /* margin-left: 3rem; */
+}
+
+.bonnet {
+  width: 3%;
+  background: #eee;
+  z-index: 1;
+  height: 20%;
+  position: absolute;
+  bottom: 0;
+  transition: 0.5s;
+}
+.main-body:hover .bonnet {
+  width: 3%;
+  background: #eee;
+  z-index: 1;
+  height: 20%;
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+}
+.middle-part {
+  height: 29%;
+  width: 20%;
+  background: #444;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  transition: 1.5s;
+}
+.main-body:hover .middle-part {
+  height: 29%;
+  width: 38%;
+  /* background: linear-gradient(to right, #3bd32e, #32ac26); */
+  background: linear-gradient(185deg, #b8ef12, #32ac26);
+  position: absolute;
+  animation: colors 15s linear infinite;
+  bottom: 0;
+  left: -1%;
+  border-top-left-radius: 112%;
+}
+.door {
+  height: 40%;
+  width: 56%;
+  position: absolute;
+  background: #444;
+  bottom: 0;
+  left: 21%;
+  transition: 1s;
+}
+.main-body:hover .door {
+  border-top-left-radius: 113%;
+  border-top-right-radius: 65%;
+  animation: colors 15s linear infinite;
+
+  background: linear-gradient(to right, #b8ef12, #32ac26);
+}
+.rear-part {
+  height: 40%;
+  width: 20%;
+  background: #666;
+  position: absolute;
+  bottom: 0%;
+  left: 40%;
+  z-index: 1;
+  transition: 1s;
+}
+.main-body:hover .rear-part {
+  clip-path: polygon(0 0, 100% 26%, 99% 67%, 0 97%);
+  bottom: -6%;
+  height: 43%;
+
+  left: 69%;
+
+  background: linear-gradient(to right, #46b623, #107007);
+  animation: colors 15s linear infinite;
+
+}
+.ground-clearance {
+  position: absolute;
+  bottom: 0;
+  height: 2%;
+  background: #222;
+  transition: 1s;
+
+  z-index: 1;
+  width: 55%;
+  right: 24%;
+  z-index: 3;
+}
+.main-body:hover .ground-clearance {
+  border-radius: 30px;
+  width: 86%;
+  right: 10%;
+}
+.front-wheel {
+  width: 10%;
+  height: 10%;
+  background: #eee;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  transition: 1s;
+}
+.main-body:hover .front-wheel {
+  border-radius: 500px;
+  width: 15%;
+  height: 24%;
+  left: 16%;
+}
+.rear-wheel {
+  width: 10%;
+  height: 10%;
+  background: #eee;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transition: 1s;
+}
+.main-body:hover .rear-wheel {
+  border-radius: 500px;
+  width: 15%;
+  height: 24%;
+  left: 70%;
+}
+.wheel {
+  width: 95%;
+  height: 95%;
+  background: #222;
+  /* border-radius: 500px; */
+  margin-top: 3%;
+  margin-left: 3%;
+  display: grid;
+  place-items: center;
+  transition: 1s;
+}
+.main-body:hover .wheel {
+  border-radius: 500px;
+}
+.brake {
+  position: absolute;
+  width: 10%;
+  height: 25%;
+  background: #444;
+  z-index: 1;
+  bottom: 38%;
+  left: 27%;
+  border-radius: 50px;
+}
+.main-body:hover .brake {
+  background: #45b623ab;
+  animation: colors 15s linear infinite;
+
+}
+.fender-top {
+  height: 2%;
+  width: 5%;
+  background: #222;
+  position: absolute;
+  bottom: 29%;
+  right: 40%;
+  transition: 1s;
+}
+.main-body:hover .fender-top {
+  transform: skew(64deg, 3deg);
+  right: 11%;
+}
+.fender-bottom {
+  height: 6%;
+  width: 1%;
+  background: #444;
+  position: absolute;
+  bottom: 24%;
+  right: 40%;
+  transition: 1s;
+}
+.main-body:hover .fender-bottom {
+  background: #32ac26;
+  animation: colors 15s linear infinite;
+
+  right: 14%;
+}
+.window {
+  background: rgba(34, 34, 34, 0.945);
+
+  height: 26%;
+  width: 56%;
+  position: absolute;
+  left: 21%;
+  bottom: 0%;
+  transition: 1s;
+
+  z-index: 1;
+}
+.mirror {
+  position: absolute;
+  width: 15%;
+  height: 23%;
+  left: 0;
+  bottom: 0;
+}
+.main-body:hover .mirror {
+  background: linear-gradient(to bottom, #b8ef12, #32ac26);
+  animation: colors 15s linear infinite;
+
+
+  left: 28.5%;
+  bottom: 17%;
+  clip-path: ellipse(22% 13% at 50% 50%);
+  z-index: 1;
+  transform: rotate(-8deg);
+}
+
+.main-body:hover .window {
+  background: linear-gradient(to bottom, rgb(241, 240, 240), #222);
+
+  clip-path: ellipse(39% 22% at 37% 92%);
+  transform: rotate(-5deg);
+  bottom: 30%;
+  width: 47%;
+  left: 32%;
+}
+/* clip-path: ellipse(39% 21% at 36% 39%);
+transform: rotate(-7deg);
+bottom: 17%;
+width: 47%;
+left: 31%; */
+.inner-wheel {
+  width: 85%;
+  height: 85%;
+  background: linear-gradient(185deg, #444, #222, #444);
+  transition: 2s;
+  animation: none;
+}
+.main-body:hover .inner-wheel {
+  border-radius: 500px;
+  display: grid;
+  place-items: center;
+  animation: spin 0.4s linear infinite;
+}
+.inner-wheel-mid {
+  width: 85%;
+  height: 85%;
+  background: #222;
+  transition: 2s;
+}
+.spoke {
+  position: absolute;
+  width: 70%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #444;
+}
+.spoke2 {
+  position: absolute;
+  width: 70%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #444;
+}
+.spoke3 {
+  position: absolute;
+  width: 70%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: #444;
+}
+.spoke4 {
+  position: absolute;
+  width: 70%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(135deg);
+  background: #444;
+}
+
+.spoke5 {
+  position: absolute;
+  width: 70%;
+  height: 3%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  background: #444;
+}
+.main-body:hover .inner-wheel-mid {
+  border-radius: 500px;
+  display: grid;
+  place-items: center;
+}
+.inner-wheel-small {
+  width: 25%;
+  height: 25%;
+  background: #444;
+  transition: 2s;
+}
+.main-body:hover .inner-wheel-small {
+  border-radius: 500px;
+}
+.front-triangle {
+  position: absolute;
+  left: 3%;
+  background: #eee;
+  height: 14%;
+  width: 5%;
+  z-index: 2;
+  bottom: 0%;
+  transition: 1s;
+}
+.main-body:hover .front-triangle {
+  clip-path: polygon(78% 61%, 0 0, 0 118%);
+}
+.side-design {
+  clip-path: polygon(0 98%, 100% 88%, 82% 99%, 0 100%);
+  position: absolute;
+  width: 37%;
+  height: 78%;
+  background: #222;
+  bottom: 6%;
+  left: 32%;
+  transform: rotate(-2deg);
+  transition: 0.5;
+  
+}
+.main-body:hover .side-design {
+  background: linear-gradient(to right, #17490800, #222);
+
+}
+
+@media (max-width: 910px) {
+  html {
+    font-size: 80%;
+  }
+}
+@media (max-width: 730px) {
+  html {
+    font-size: 60%;
+  }
+
+  span::after {
+    content: 'Click on Image';
+  }
+  .main-body {
+    margin-bottom: 40rem;
+  }
+  body h1 {
+    margin-bottom: 20rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 557px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 462px) {
+  html {
+    font-size: 40%;
+  }
+  body h1 {
+    margin-bottom: 30rem;
+    width: 100%;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 368px) {
+  html {
+    font-size: 35%;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+
+@keyframes colors{
+    0%{
+        background: linear-gradient(185deg, #b8ef12, #32ac26);
+
+    }
+    20%{
+       
+        background: linear-gradient(185deg, #ff0800, #220329);
+    }
+    40%{
+        background: linear-gradient(185deg, #2969ff, #0b1674);
+
+    }
+    60%{
+        background: linear-gradient(185deg, #dafa27, #d18f00);
+
+    }
+    80%{
+        background: linear-gradient(185deg, #7a7c76, #131613);
+
+    }
+    100%{
+        background: linear-gradient(185deg, #b8ef12, #32ac26);
+
+    }
+}
